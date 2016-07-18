@@ -1,0 +1,544 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue",Helvetica,"Microsoft Yahei",STHeiTi,sans-serif;
+}
+
+ul, li, h1, h2, h3, h4, h5, h6, p {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/*rem进行屏幕各种适配*/
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 50px;
+  }
+}
+
+@media screen and (min-width: 360px) {
+  html {
+    font-size: 56.25px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  html {
+    font-size: 58.59375px;
+  }
+}
+
+@media screen and (min-width: 384px) {
+  html {
+    font-size: 60px;
+  }
+}
+
+@media screen and (min-width: 411px) {
+  html {
+    font-size: 64.21875px;
+  }
+}
+
+@media screen and (min-width: 414px) {
+  html {
+    font-size: 64.6875px;
+  }
+}
+
+@media screen and (min-width: 460px) {
+  html {
+    font-size: 71.875px;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  html {
+    font-size: 100px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 120px;
+  }
+}
+
+.FBstudio:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+@font-face {
+  font-family: 'iconfont';
+  src: url("./images/iconfont.eot");
+  /* IE9*/
+  src: url("./images/iconfont.eot?#iefix") format("embedded-opentype"), url("./images/iconfont.woff") format("woff"), url("./images/iconfont.ttf") format("truetype"), url("./images/iconfont.svg#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*<i class="iconfont">&#x33;</i>*/
+/*微信直播间首页*/
+#FBheader {
+  margin-bottom: 5px;
+  padding-top: 5px;
+  background: green;
+}
+
+#FBheader .hd-logo {
+  display: inline-block;
+  height: 40px;
+  width: 128px;
+}
+
+#FBheader .hd-logo img {
+  width: 100%;
+  height: 100%;
+}
+
+#FBmain {
+  max-width: 720px;
+  /*min-width: 320px;*/
+  margin: 0 auto;
+  position: relative;
+}
+
+#FBbanner {
+  position: relative;
+  min-height: 100px;
+}
+
+.FBcircle.swiper-pagination {
+  text-align: right;
+  width: 100%;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  opacity: .8;
+}
+
+.swiper-wrapper {
+  position: relative;
+  margin: 0;
+  min-height: 100px;
+}
+
+.swiper-wrapper a {
+  display: block;
+}
+
+.swiper-wrapper a img {
+  width: 100%;
+  display: block;
+}
+
+#FBlive {
+  width: 100%;
+  height: 100%;
+}
+
+.FB-live-list {
+  padding: 0 1% 1% 0;
+}
+
+.FB-live-list li {
+  float: left;
+  width: 48%;
+  height: 100%;
+  margin: 1% 0 0 2%;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+  border-color: #d9d9d9;
+}
+
+.FB-live-list:after {
+  clear: both;
+  content: "";
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+
+.list-item .listbar {
+  height: 20px;
+  line-height: 20px;
+  position: absolute;
+  right: 0;
+}
+
+.list-item .listbar-right {
+  background-color: #ccc;
+  color: #000000;
+  content: "FlyingBrid";
+  display: block;
+  font-size: 10px;
+  padding: 0 2px;
+  text-align: center;
+  top: 0;
+  width: 60px;
+  z-index: 1000;
+  height: 20px;
+}
+
+.list-item .listbar-right.live {
+  background-color: #F87F1D;
+  color: #000;
+  content: "FlyingBrid";
+  display: block;
+  font-size: 10px;
+  padding: 0 2px;
+  text-align: center;
+  top: 0;
+  width: 60px;
+  z-index: 1000;
+  height: 20px;
+}
+
+.list-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.list-item .listpeople {
+  position: absolute;
+  bottom: 25%;
+  right: 0;
+  font-size: 0.12rem;
+  color: white;
+}
+
+.list-item .listpeople i {
+  font-style: normal;
+  width: 12px;
+  height: 12px;
+  vertical-align: middle;
+  margin-bottom: 2px;
+  margin-right: 2px;
+  background: url(./favoredBtn.png);
+  display: inline-block;
+}
+
+.list-item .listvideo {
+  width: 100%;
+  height: 1.8rem;
+}
+
+.list-item .listvideo img {
+  width: 100%;
+  display: block;
+}
+
+.list-item .listname {
+  font-size: 0.24rem;
+  color: #000000;
+  height: 0.3rem;
+  line-height: 0.3rem;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.listvideo img {
+  width: 100%;
+  height: 100%;
+}
+
+.listname {
+  text-align: center;
+}
+
+/*微信直播间内面*/
+.FBfollows {
+  position: relative;
+}
+
+.FBfollow {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #2C313C;
+  z-index: 1000;
+  opacity: 0.7;
+  font-size: 0.26rem;
+  text-align: center;
+  color: #FA760A;
+  width: 1.6rem;
+}
+
+.FBfollow .FBfo-top {
+  line-height: 0.4rem;
+}
+
+.FBfollow .FBfo-bom {
+  height: 0.4rem;
+}
+
+.FBfollow i {
+  font-size: 0.26rem;
+}
+
+.FBfollow.bian i {
+  background: green;
+}
+
+#FBlivemain {
+  position: relative;
+  margin: 0 auto;
+}
+
+.FBstudio {
+  width: 100%;
+  font-size: .26rem;
+  height: .8rem;
+  line-height: .8rem;
+  border-bottom: 1px solid #ccc;
+  /*box-sizing:border-box;
+	overflow: hidden;
+*/
+}
+
+.FBstudio .FB-st-lists {
+  float: left;
+  width: 16%;
+  margin: 0 2%;
+}
+
+.FBstudio a {
+  display: block;
+}
+
+.FBstudio span {
+  display: block;
+}
+
+.FB-st-lists.juse {
+  border-bottom: 2px solid #FA760A;
+}
+
+.FB-st-lists.juse span {
+  color: #FA760A;
+}
+
+.FBcontent {
+  font-size: 0.28rem;
+  position: relative;
+  background: #E5E5E5;
+}
+
+.FBcontent .text {
+  display: block;
+}
+
+.FBcontentmain {
+  /*min-height: 3.6rem;*/
+  overflow: auto;
+  bottom: 0.8rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #E5E5E5;
+}
+
+.FBconlist {
+  position: relative;
+}
+
+.liveusimg {
+  display: block;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin: 0.1rem;
+  margin-left: 0.3rem;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+}
+
+.liveusimg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.liveuscon {
+  padding: 0.2rem 0.3rem 0.2rem 1rem;
+  position: relative;
+  text-align: left;
+}
+
+.uscon-name {
+  width: 30%;
+  /*display: block;*/
+  font-size: 0.24rem;
+  padding: 0.1rem 0rem;
+}
+
+.uscon-name.me {
+  color: #FA760A;
+}
+
+.uscon-name.you {
+  color: #353535;
+}
+
+/*.uscon-time{
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0.2rem;
+    font-size: 0.24rem;
+    color: #353535;
+}*/
+.uscon-text {
+  /*display: block;*/
+  width: 60%;
+  border-width: 0;
+  font-size: 0.26rem;
+  line-height: 0.38rem;
+  padding: 0.1rem 0rem;
+}
+
+.uscon-text.me {
+  color: #FA760A;
+}
+
+.FBlivefooter {
+  font-size: 12px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 0.8rem;
+  background: #ccc;
+  border-top: 1px solid #b7b6b6;
+}
+
+.FBlivefooter .live-ft {
+  width: 100%;
+}
+
+.FBlivefooter .live-ft li {
+  float: left;
+  height: 0.8rem;
+  line-height: 0.8rem;
+}
+
+.FBlivefooter .live-face {
+  width: 15%;
+}
+
+.FBlivefooter .live-face i {
+  font-size: 0.5rem;
+  color: #767676;
+}
+
+.FBlivefooter .live-chat {
+  width: 70%;
+  position: relative;
+}
+
+.FBlivefooter .live-chat input {
+  width: 100%;
+  font-size: 0.32rem;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 5px 5px;
+  margin-top: 0.1rem;
+  padding: 6px 0;
+}
+
+.FBlivefooter .live-chat span {
+  position: absolute;
+  top: 20%;
+  left: 85%;
+  bottom: 0;
+  width: 1px;
+  height: 0.5rem;
+  background: #AFAFAF;
+}
+
+.FBlivefooter .live-chat .jiantou {
+  position: absolute;
+  top: 1%;
+  left: 90%;
+  font-size: 0.3rem;
+  color: #AFAFAF;
+}
+
+.FBlivefooter .live-gift {
+  width: 15%;
+}
+
+.FBlivefooter .live-gift i {
+  font-size: 0.5rem;
+  color: #767676;
+}
+
+.live-ft li:hover i {
+  color: green;
+}
+
+/*buy页面*/
+#FBbuy {
+  width: 80%;
+  min-height: 200px;
+  background: #ccc;
+  font-size: 0.24rem;
+  padding-top: 2%;
+}
+
+.FBbuy-goods {
+  float: left;
+  width: 68%;
+  height: 0.78rem;
+  margin-left: 2%;
+  line-height: 0.78rem;
+}
+
+.FBbuy-goods li {
+  width: 50%;
+  overflow: hidden;
+  float: left;
+  font-size: 0.24rem;
+}
+
+.FBbuy-goods span {
+  color: #FA760A;
+}
+
+.FBbuy-pay {
+  float: right;
+  width: 28%;
+  height: 0.78rem;
+  outline: none;
+  background-color: #f7622e;
+  border: 1px solid #f26f4d;
+  border-radius: 5px 5px;
+  margin-right: 2%;
+}
+
+/*贡献榜单*/

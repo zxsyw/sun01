@@ -1,0 +1,456 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: "Helvetica Neue",Helvetica,"Microsoft Yahei",STHeiTi,sans-serif;
+}
+ul,li,h1,h2,h3,h4,h5,h6,p{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+	color:#000;
+}
+
+/*rem进行屏幕各种适配*/
+@mixin userem($size){
+	$shebei-list:320px,360px,375px,384px,411px,414px,460px,640px,768px;
+	@each $shebei in $shebei-list{
+		@media  screen and(min-width: $shebei){
+			html{
+				font-size:100px * ($shebei/$size);
+			}
+		}
+	}
+}
+@include userem(640px)
+
+%qc{
+	clear: both;
+	content: '';
+	display: table;
+}
+
+@font-face {font-family: 'iconfont';
+    src: url('./images/iconfont.eot'); /* IE9*/
+    src: url('./images/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('./images/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('./images/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('./images/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*<i class="iconfont">&#x33;</i>*/
+
+/*微信直播间首页*/
+
+#FBheader{
+    margin-bottom: 5px;
+    padding-top: 5px;
+    background: green;
+    .hd-logo{
+       display: inline-block;
+       height: 40px;
+       width: 128px;
+       img{
+       	width: 100%;
+       	height: 100%;
+       }
+    }
+}
+
+#FBmain{
+    max-width: 720px;
+    /*min-width: 320px;*/
+    margin: 0 auto;
+    position: relative;
+}
+#FBbanner{
+    position: relative;
+    min-height: 100px;
+}
+.FBcircle.swiper-pagination{
+	text-align: right;
+	width:100%;
+}
+.swiper-pagination-bullet{
+	width: 12px;
+    height: 12px;
+    opacity: .8;
+}
+.swiper-wrapper{
+	position: relative;
+	margin: 0;
+	min-height: 100px;	
+	a{
+		display: block;
+		img{
+		width: 100%;
+		display: block;
+		}
+	}
+}
+#FBlive{
+   width: 100%;
+   height:100%;
+}
+.FB-live-list{
+	padding:0 1% 1% 0;
+	li{
+		float: left;
+		width: 48%;
+		height: 100%;
+		margin: 1% 0 0 2%;
+		position: relative;
+	    overflow: hidden;
+	    border-bottom: 1px solid #ccc;
+	    border-color: #d9d9d9;
+	}
+	&:after{
+		clear: both;
+    content: "";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+	}
+}
+.list-item{
+	.listbar{
+       height: 20px;
+       line-height: 20px;
+       position: absolute;
+       right: 0;
+	}
+	.listbar-right{
+       	background-color: #ccc;
+       	color: #000000;
+       	content: "FlyingBrid";
+       	display: block;
+       	font-size: 10px;
+       	padding: 0 2px;
+       	text-align: center;
+       	top: 0;
+       	width: 60px;
+       	z-index: 1000;
+       	height: 20px;
+       }
+       .listbar-right.live{
+       	background-color: #F87F1D;
+       	color: #000;
+       	content: "FlyingBrid";
+       	display: block;
+       	font-size: 10px;
+       	padding: 0 2px;
+       	text-align: center;
+       	top: 0;
+       	width: 60px;
+       	z-index: 1000;
+       	height: 20px;
+       }
+	a{
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	.listpeople{
+		position: absolute;
+		bottom: 25%;
+		right: 0;
+		font-size: 0.12rem;
+		color: white;
+		i{
+			font-style: normal;
+			width: 12px;
+			height: 12px;
+			vertical-align: middle;
+			margin-bottom: 2px;
+			margin-right: 2px;
+			background: url(./favoredBtn.png);
+			display: inline-block;
+		}
+	}
+	.listvideo{
+		width: 100%;
+		height: 1.8rem;
+		img{
+			width: 100%;
+			display: block;
+		}
+	}
+	.listname{
+		font-size: 0.24rem;
+		color:#000000;
+		height: 0.3rem;
+		line-height: 0.3rem;
+		padding-top: 4px;
+		padding-bottom: 4px;
+	}
+}
+.listvideo img{
+	width: 100%;
+	height: 100%;
+}
+.listname{
+	text-align: center;
+}
+
+
+/*微信直播间内面*/
+.FBfollows{
+	position: relative;
+}
+
+.FBfollow{
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: #2C313C;
+	z-index: 1000;
+	opacity: 0.7;
+	font-size: 0.26rem;
+	text-align: center;
+	color:#FA760A;
+    width: 1.6rem;
+	.FBfo-top{
+		line-height: 0.4rem;
+	}
+	.FBfo-bom{
+		height: 0.4rem;
+	}
+	i{
+			font-size: 0.26rem;
+		}
+}
+.FBfollow.bian{
+	i{
+		background: green;
+	}
+}
+
+
+#FBlivemain{
+	position: relative;
+    margin: 0 auto;
+}
+
+.FBstudio{
+	width:100%;
+	font-size: .26rem;
+	height: .8rem;
+	line-height: .8rem;
+	border-bottom: 1px solid #ccc;
+	/*box-sizing:border-box;
+	overflow: hidden;
+*/	&:after{
+		@extend %qc;
+	}
+	.FB-st-lists{
+		float: left;
+		width:16%;
+		margin: 0 2%;
+
+	}
+	a{
+		display: block;
+	}
+	span{
+		display: block;
+	}
+}
+.FB-st-lists.juse{
+	border-bottom: 2px solid #FA760A;
+	span{
+		color:#FA760A;
+	}
+}
+
+
+.FBcontent{
+	font-size:0.28rem;
+	position: relative;
+	background: #E5E5E5;
+}
+.FBcontent .text{
+    display: block;
+}
+
+.FBcontentmain{
+	/*min-height: 3.6rem;*/
+	overflow: auto;
+	bottom: 0.8rem;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #E5E5E5;
+}
+.FBconlist{
+	position: relative;
+}
+.liveusimg{
+	display: block;
+	width: 0.6rem;
+    height: 0.6rem;
+    margin: 0.1rem;
+    margin-left: 0.3rem;
+	border-radius: 50%;    	
+	overflow: hidden;
+	position: absolute;
+	img{
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+}
+.liveuscon{
+	padding: 0.2rem 0.3rem 0.2rem 1rem;
+	position: relative;
+    text-align: left;
+}
+.uscon-name{
+    width: 30%;
+    /*display: block;*/
+    font-size: 0.24rem;
+    padding: 0.1rem 0rem;
+}
+.uscon-name.me{
+    color: #FA760A;
+}
+.uscon-name.you{
+	color: #353535;
+}
+/*.uscon-time{
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0.2rem;
+    font-size: 0.24rem;
+    color: #353535;
+}*/
+.uscon-text{
+    /*display: block;*/
+    width: 60%;
+    border-width: 0;
+    font-size: 0.26rem;
+    line-height: 0.38rem;
+    padding: 0.1rem 0rem;
+}
+.uscon-text.me{
+    color: #FA760A;
+}
+
+
+
+.FBlivefooter{
+	font-size: 12px;
+	position: fixed;
+	bottom: 0;
+	right:0;
+	left: 0;
+	overflow: hidden;
+	width: 100%;
+	height: 0.8rem;
+	background: #ccc;
+	border-top: 1px solid #b7b6b6;
+	.live-ft{
+		width: 100%;
+		li{
+			float: left;
+			height: 0.8rem;
+		    line-height: 0.8rem;
+		}
+	}
+	.live-face{
+		width:15%;
+		i{
+			font-size: 0.5rem;
+			color:#767676;
+		}
+	}
+	.live-chat{
+		width: 70%;
+		position: relative;
+		input{
+			width: 100%;
+			font-size: 0.32rem;
+			outline: none;
+			border: 1px solid #ccc;
+			border-radius: 5px 5px;
+			margin-top: 0.1rem;
+			padding: 6px 0;
+		}
+		span{
+			position:absolute;
+			top: 20%;
+			left: 85%;
+			bottom: 0;
+			width: 1px;
+			height: 0.5rem;
+			background: #AFAFAF;
+		}
+		.jiantou{
+			position:absolute;
+			top: 1%;
+			left: 90%;
+			font-size: 0.3rem;
+			color: #AFAFAF;
+		}
+	}
+	.live-gift{
+		width: 15%;
+		i{
+			font-size: 0.5rem;
+			color:#767676;
+		}
+	}
+}
+.live-ft li:hover i{
+	color: green;
+}
+
+/*buy页面*/
+
+#FBbuy{
+	width:80%;
+	min-height:200px;
+	background: #ccc;
+	font-size: 0.24rem;
+	padding-top: 2%;
+}
+.FBbuy-goods{
+	float: left;
+	width: 68%;
+	height: 0.78rem;
+    margin-left: 2%;
+	line-height: 0.78rem;
+	li{
+		width: 50%;
+		overflow: hidden;
+		float: left;
+		font-size: 0.24rem;
+	}
+	span{
+		color:#FA760A;
+	}
+}
+.FBbuy-pay{
+	float: right;
+	width: 28%;
+	height: 0.78rem;
+	outline: none;
+	background-color: #f7622e;
+    border: 1px solid #f26f4d;
+    border-radius: 5px 5px;
+    margin-right: 2%;
+}
+
+/*贡献榜单*/
