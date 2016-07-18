@@ -1,0 +1,382 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FlyingBrid</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />   
+
+
+
+
+
+<meta content="width=device-width, height=device-height, user-scalable=no" name="viewport" />
+<script type="text/javascript" src="{$site_url}/js/jquery.js" charset="utf-8"></script>
+<script type="text/javascript" src="{$site_url}/themes/mall/default/styles/wxmall/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="{lib file=member.js}" charset="utf-8"></script>
+<script type="text/javascript" src="{lib file=ecmall.js}" charset="utf-8"></script>
+<script type="text/javascript" src="{lib file=jquery.slide.js}" charset="utf-8"></script>
+<link href="{$site_url}/themes/mall/default/styles/wxmall/css/common.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="index.css">
+<script src="./jquery.js"></script>
+
+<script>
+var vodparam = "http://live.baofengcloud.com/{$channel.uid}/player/cloud.swf?{$channel.url}&auto=0&si=1&vr=0";
+document.write('<script type="text/javascript" src="http://live.baofengcloud.com/html/script/bfcloud.js?v=2"></scr'+'ipt>');
+</script>
+<!-- {$page_seo} -->
+<script>
+	cloudsdk.initvideo(videoareaname,{"src":vodparam,"id":"cloudsdk","isautosize":"0","height":"250"});
+</script>
+<!-- {$_head_tags} -->
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+wx.config({
+    debug: false,
+    appId: '{$signPackage.appId}',
+    timestamp: {$signPackage.timestamp},
+    nonceStr: '{$signPackage.nonceStr}',
+    signature: '{$signPackage.signature}',
+    jsApiList: [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ'
+          ]
+});
+
+wx.ready(function(){
+	  var shareData = {
+			    title: '{$share.title}',
+			    desc: '{$share.description}',
+			    link: '{$share.redirect_url}',
+			    imgUrl: '{$share.logourl}'
+			  };
+		wx.onMenuShareAppMessage(shareData);
+		  var shareData1 = {
+				    title: '{$share.description}',
+				    desc: '{$share.description}',
+				    link: '{$share.redirect_url}',
+				    imgUrl: '{$share.logourl}'
+				  };
+		wx.onMenuShareTimeline(shareData1);
+		wx.onMenuShareQQ(shareData);
+		
+	});
+
+wx.error(function (res) {
+	  alert(res.errMsg);
+	});
+
+</script>
+<script type="text/javascript">
+function submit_comment(){
+//	var k = $("#comments").val();
+//	if(k==null || k==""){
+//		return false;
+//	}else{
+//		alert(k);
+//	}
+$.ajax({
+    cache: true,
+    type: "POST",
+    url:'index.php?app=comments&act=add&return_type=json',
+    data:$('#comment').serialize(),// 你的formid
+    async: false,
+    dataType:"json",
+    error: function(request) {
+        alert("Connection error");
+    },
+    success: function(data) {
+   		$("#comments").attr("value","");
+    	$("#pinglun").html(data.comments);
+    }
+});
+}
+</script>
+<script>
+function refreshComments(){
+	$.getJSON("http://www.feiniaolive.com/index.php?app=comments&act=refresh_comments&videoid={$channel.chan_id}&rr="+Math.random(),function(data){
+		$("#pinglun").html(data.comments);
+	});
+}
+$(document).ready(function(){
+	setInterval(refreshComments,5000);
+});
+
+</script>
+<style>
+ul,ol,li,h2{ margin:0px; padding:0px;}
+.show { display:block;} .none{ display:none;}
+.clear { clear:both;}
+.tab{ list-style:none; overflow:hidden;}
+.tab li{ cursor: pointer;height:35px;}
+.blank{ width:100%; padding:20px;}
+/*tab slider */
+#slider .tab { width:100%;}
+#slider .tab li{ float:left; border-bottom:#0CF 1px solid; padding:2px 2px;font-size:14px;width:18%;}
+#slider .tab li.on{border-bottom:1px solid red; font-size:16px;width:18%;}
+#slider .content{ width:100%; height:200px; display:none;}
+</style>
+</head>
+<body style="text-align:center;" class="FBfollows">
+   <div></div>
+    <div class="FBfollow">
+    <div class="FBfo-top"><img src="./liveguanzhu.png" alt="" /><span>关注</span></div>
+    <div class="FBfo-bom">345</div>
+    </div>
+    <div style="clear:both;"></div>
+    <section id="FBlivemain">
+    <ul class="FBstudio">
+        <li class="FB-st-lists juse">
+        <a href="#">
+        <span>聊天</span>
+        </a>
+        </li>
+        <li class="FB-st-lists jianjie">
+        <a href="#">
+        <span>简介</span>
+        </a>
+        </li>
+        <li class="FB-st-lists">
+        <a href="#">
+        <span>用户</span>
+        </a>
+        </li>
+        <li class="FB-st-lists">
+        <a href="#">
+        <span>贡献度</span>
+        </a>
+        </li>
+        <li class="FB-st-lists">
+        <a href="#">
+        <span>购buy</span>
+        </a>
+        </li>
+    </ul>
+    <div class="FBcontent active">
+        <div class="FBcontentmain">
+            <div class="FBconlist">
+                <img src="./banner1.jpg" alt=""  class="liveusimg"/>
+                <div class="liveuscon">
+                        <span class="uscon-name me">昵称：</span>
+                        <!-- <span class="uscon-time">2016-01-01 20:3</span> -->
+                        <span class="uscon-text me">美女主播好漂亮美女主播好漂亮美女主播好漂亮美女主播好漂亮美女主播好漂亮美女主播好漂亮美女主播好漂亮</span>
+                </div>
+            </div>
+             <div class="FBconlist">
+                <img src="./banner2.jpg" alt=""  class="liveusimg"/>
+                <div class="liveuscon">
+                        <span class="uscon-name you">昵称：</span>
+                        <!-- <span class="uscon-time">2016-01-01 20:3</span> -->
+                        <span class="uscon-text you">美女主播好漂亮</span>
+                </div>
+            </div>
+            <div class="FBconlist">
+                <img src="./banner1.jpg" alt=""  class="liveusimg"/>
+                <div class="liveuscon">
+                        <span class="uscon-name me">昵称：</span>
+                        <!-- <span class="uscon-time">2016-01-01 20:3</span> -->
+                        <span class="uscon-text me">美女主播好漂亮</span>
+                </div>
+            </div>
+             <div class="FBconlist">
+                <img src="./banner2.jpg" alt=""  class="liveusimg"/>
+                <div class="liveuscon">
+                        <span class="uscon-name you">昵称：</span>
+                        <!-- <span class="uscon-time">2016-01-01 20:3</span> -->
+                        <span class="uscon-text you">美女主播好漂亮</span>
+                </div>
+            </div>
+            <div class="FBconlist">
+                <img src="./banner1.jpg" alt=""  class="liveusimg"/>
+                <div class="liveuscon">
+                        <span class="uscon-name me">昵称：</span>
+                        <!-- <span class="uscon-time">2016-01-01 20:3</span> -->
+                        <span class="uscon-text me">美女主播好漂亮</span>
+                </div>
+            </div>
+             <div class="FBconlist">
+                <img src="./banner2.jpg" alt=""  class="liveusimg"/>
+                <div class="liveuscon">
+                        <span class="uscon-name you">昵称：</span>
+                        <!-- <span class="uscon-time">2016-01-01 20:3</span> -->
+                        <span class="uscon-text you">美女主播好漂亮</span>
+                </div>
+            </div>
+            <div class="FBconlist">
+                <img src="./banner1.jpg" alt=""  class="liveusimg"/>
+                <div class="liveuscon">
+                        <span class="uscon-name me">昵称：</span>
+                        <!-- <span class="uscon-time">2016-01-01 20:3</span> -->
+                        <span class="uscon-text me">美女主播好漂亮</span>
+                </div>
+            </div>
+             <div class="FBconlist">
+                <img src="./banner2.jpg" alt=""  class="liveusimg"/>
+                <div class="liveuscon">
+                        <span class="uscon-name you">昵称：</span>
+                        <!-- <span class="uscon-time">2016-01-01 20:3</span> -->
+                        <span class="uscon-text you">美女主播好漂亮</span>
+                </div>
+            </div>
+            <div class="FBconlist">
+                <img src="./banner1.jpg" alt=""  class="liveusimg"/>
+                <div class="liveuscon">
+                        <span class="uscon-name me">昵称：</span>
+                        <!-- <span class="uscon-time">2016-01-01 20:3</span> -->
+                        <span class="uscon-text me">美女主播好漂亮</span>
+                </div>
+            </div>
+             <div class="FBconlist">
+                <img src="./banner2.jpg" alt=""  class="liveusimg"/>
+                <div class="liveuscon">
+                        <span class="uscon-name you">昵称：</span>
+                        <!-- <span class="uscon-time">2016-01-01 20:3</span> -->
+                        <span class="uscon-text you">美女主播好漂亮</span>
+                </div>
+            </div>
+            <div class="FBconlist">
+                <img src="./banner1.jpg" alt=""  class="liveusimg"/>
+                <div class="liveuscon">
+                        <span class="uscon-name me">昵称：</span>
+                        <!-- <span class="uscon-time">2016-01-01 20:3</span> -->
+                        <span class="uscon-text me">美女主播好漂亮</span>
+                </div>
+            </div>
+             <div class="FBconlist">
+                <img src="./banner2.jpg" alt=""  class="liveusimg"/>
+                <div class="liveuscon">
+                        <span class="uscon-name you">昵称：</span>
+                        <!-- <span class="uscon-time">2016-01-01 20:3</span> -->
+                        <span class="uscon-text you">美女主播好漂亮</span>
+                </div>
+            </div>
+            <div class="FBconlist">
+                <img src="./banner1.jpg" alt=""  class="liveusimg"/>
+                <div class="liveuscon">
+                        <span class="uscon-name me">昵称：</span>
+                        <!-- <span class="uscon-time">2016-01-01 20:3</span> -->
+                        <span class="uscon-text me">美女主播好漂亮</span>
+                </div>
+            </div>
+             <div class="FBconlist">
+                <img src="./banner2.jpg" alt=""  class="liveusimg"/>
+                <div class="liveuscon">
+                        <span class="uscon-name you">昵称：</span>
+                        <!-- <span class="uscon-time">2016-01-01 20:3</span> -->
+                        <span class="uscon-text you">美女主播好漂亮</span>
+                </div>
+            </div>
+            <div class="FBconlist">
+                <img src="./banner1.jpg" alt=""  class="liveusimg"/>
+                <div class="liveuscon">
+                        <span class="uscon-name me">昵称：</span>
+                        <!-- <span class="uscon-time">2016-01-01 20:3</span> -->
+                        <span class="uscon-text me">美女主播好漂亮</span>
+                </div>
+            </div>
+             <div class="FBconlist">
+                <img src="./banner2.jpg" alt=""  class="liveusimg"/>
+                <div class="liveuscon">
+                        <span class="uscon-name you">昵称：</span>
+                        <!-- <span class="uscon-time">2016-01-01 20:3</span> -->
+                        <span class="uscon-text you">美女主播好漂亮</span>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class="FBcontent">当生命的纹路满是苍夷，荆棘刺破我们的肌肤，强光刺伤了我们的眼睛，最后的我们，就连呼吸都变得极其微弱，看青春已不再，梦想也随着凋零，我们该拿什么来面对生命？ 是心！ 任大千世界多变，沧海桑田转变，独守一份静宁，清行一份奋斗，让奇迹不息，心灵之光不灭！</div>
+    <div class="FBcontent">用户</div>
+    <div class="FBcontent">贡献度</div>
+    <div class="FBcontent">购buy</div>
+    </section>
+    <script>
+       var FBstudiolists = $('.FBstudio li')
+       var FBcontent = $('.FBcontent')
+       FBstudiolists.each(function(i){
+           $( this ).click(function(){
+            FBstudiolists.removeClass('juse');
+            $( this ).toggleClass("juse" );
+            FBcontent.removeClass('active')
+            FBcontent.eq(i).addClass('active')
+        })
+       })
+       var pingmuheight = window.screen.height;
+       console.log(pingmuheight)
+       var yiyouheight  = $('.FBstudio').height();
+       console.log(yiyouheight)
+       var bianliangheight = pingmuheight - yiyouheight - 250;
+       $('.FBcontent').css('height',bianliangheight)
+    </script>
+    <form class="FBlivefooter">
+        <ul class="live-ft">
+            <li class="live-face" onclick="submit_comment();">
+            <!-- <img src="./banner1.jpg" alt="" /> -->
+            <img src="./livechat.png" alt="" />
+            </li>
+            <li class="live-chat">
+            <input type="text" placeholder="输入您想说的话"/>
+            <span></span>
+            <img class ="jiantou" src="./livejiantou.png" alt="" />
+            </li>
+            <li class="live-gift">
+            <img src="./livegift.png" alt="" />
+            </li>
+        </ul>
+    </form>
+    <!-- <div id="slider">
+      <ul class="tab">
+        <li class="on" >聊天</li>
+        <li>简介</li>
+        <li><a href="index.php?app=wxcenter">用户中心</a></li>
+        <li  ><a href="#" onclick="">贡献榜</a></li>
+        <li><a href="#" onclick="">购buy</a></li> -->
+        <!--li style="width:14%;background:#ededed;border-bottom:1px solid #fff"></li>-->
+    <!-- </ul> -->
+    <!-- <div stlye="width:100%;float:left"> -->
+    <!-- <div style="width:80%;float:left;text-align:center;">    <h1>评论区</h1></div> -->
+    <!-- <div style="float:left;width:20%;background:#ededed;"><span>关注<br />345</span></div> -->
+    <!-- </div> -->
+
+<!-- <div class="content" style="display:block;height:200px; overflow:auto" id="pinglun" > -->
+    <!-- {foreach from=$channel.comments item=comment} -->
+  <!--   <div style="text-align:left;margin:1px;">
+       <span style="background:#fff;"></span><span></span>
+   </div> -->
+   <!-- {foreachelse} -->
+   <!-- <div style=""></div> -->
+   <!-- {/foreach} -->
+<!-- </div>
+<div class="content" style="height:200px; overflow:auto"></div>
+</div>
+<br />
+<br />
+<br /> -->
+<script >
+    /**/ 
+    var st=[];
+    st[1]=$.st('#slider li','#slider .content',{'switchMode':'click'});
+</script>
+<style>
+    /*.footer1{position:fixed;bottom:0px;height:50px;background:#fff; color:#fff;  overflow:hidden; width:100%}*/
+</style>
+<!-- <div class="footer1">
+    <form action="index.php?app=comments&act=add&return_type=json" method="post" id="comment" onSubmit="return false">
+        <input type="hidden" name="videoid" value="{$channel.chan_id}" />
+        <input type="hidden" name="type" value="channel" />
+        <table width=100% cellspacing=1 bgcolor="green">
+            <tr>
+                <td bgcolor="#fff" onclick="submit_comment();"><img src="themes/mall/new/styles/wxmall/images/chat.png" /></td>
+                <td bgcolor="#fff"><input type="text" name="comments" id="comments" maxlength="20" style="width:100%;border-width:0" /></td>
+                <td bgcolor="#fff"><input type="button" style="width:50px;height:50px;border:0;background:url(themes/mall/new/styles/wxmall/images/gift_1.png)" ectype="dialog" dialog_width="100%" dialog_title="----" dialog_id="buyer_order_buy" uri="index.php?app=buyer_order&amp;act=buy&chanid={$channel.chan_id}"  id="buyer_order_action_buy" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<iframe id='iframe_post' name="iframe_post" src="about:blank" frameborder="0" width="0" height="0">
+</iframe> -->
+</body>
+</html>
